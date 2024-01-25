@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
-//import 'animate.css';
+import 'animate.css';
 import TrackVisibility from "react-on-screen";
 
 export const Contact = () => {
@@ -13,7 +13,7 @@ export const Contact = () => {
     message: "",
   };
   const [formDetails, setFormDetails] = useState(formInitialDetails);
-  const [buttonText, setButtonText] = useState("Send");
+  const [buttonText, setButtonText] = useState("Enviar");
   const [status, setStatus] = useState({});
 
   const onFormUpdate = (category, value) => {
@@ -25,15 +25,15 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000/contact", {
+    setButtonText("Enviando...");
+    let response = await fetch(`${import.meta.env.VITE_URL_CONTACT}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(formDetails),
     });
-    setButtonText("Send");
+    setButtonText("Enviar");
     let result = await response.json();
     setFormDetails(formInitialDetails);
     if (result.code == 200) {
@@ -71,14 +71,14 @@ export const Contact = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h2>Get In Touch</h2>
+                  <h2>Ponete en contacto conmigo</h2>
                   <form onSubmit={handleSubmit}>
                     <Row>
                       <Col size={12} sm={6} className="px-1">
                         <input
                           type="text"
                           value={formDetails.firstName}
-                          placeholder="First Name"
+                          placeholder="Tu nombre"
                           onChange={(e) =>
                             onFormUpdate("firstName", e.target.value)
                           }
@@ -88,7 +88,7 @@ export const Contact = () => {
                         <input
                           type="text"
                           value={formDetails.lasttName}
-                          placeholder="Last Name"
+                          placeholder="Tu apellido"
                           onChange={(e) =>
                             onFormUpdate("lastName", e.target.value)
                           }
@@ -98,7 +98,7 @@ export const Contact = () => {
                         <input
                           type="email"
                           value={formDetails.email}
-                          placeholder="Email Address"
+                          placeholder="Tu dirección de Email"
                           onChange={(e) =>
                             onFormUpdate("email", e.target.value)
                           }
@@ -108,7 +108,7 @@ export const Contact = () => {
                         <input
                           type="tel"
                           value={formDetails.phone}
-                          placeholder="Phone No."
+                          placeholder="Tu número de celular"
                           onChange={(e) =>
                             onFormUpdate("phone", e.target.value)
                           }
@@ -118,7 +118,7 @@ export const Contact = () => {
                         <textarea
                           rows="6"
                           value={formDetails.message}
-                          placeholder="Message"
+                          placeholder="Mensaje"
                           onChange={(e) =>
                             onFormUpdate("message", e.target.value)
                           }

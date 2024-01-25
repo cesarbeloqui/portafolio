@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/img/header-img.svg";
+import headerImg from "../assets/img/logo2.png";
 import { ArrowRightCircle } from "react-bootstrap-icons";
-//import 'animate.css';
+import "animate.css";
 import TrackVisibility from "react-on-screen";
 
 export const Banner = () => {
@@ -86,9 +86,11 @@ export const Banner = () => {
                     aprendizaje. Nivel A1 de Inglés Británico, actualmente
                     cursando Inglés Nivel A2.
                   </p>
-                  <button onClick={() => console.log("connect")}>
-                    Contactame <ArrowRightCircle size={25} />
-                  </button>
+                  <a href="#connect">
+                    <button>
+                      Contactame <ArrowRightCircle size={25} />
+                    </button>
+                  </a>
                 </div>
               )}
             </TrackVisibility>

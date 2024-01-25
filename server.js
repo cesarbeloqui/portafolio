@@ -3,18 +3,31 @@ const router = Router();
 import cors from "cors";
 import "dotenv/config";
 import sgMail from "@sendgrid/mail";
+import { readFile } from "fs/promises";
+import path from "path";
 
 // server used to send send emails
 const app = express();
-app.use(cors());
+
+// eslint-disable-next-line no-undef
+app.use(express.static(path.join(path.resolve(), "./dist")));
+app.use((_req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Request-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET,POST, OPTIONS, PUT,DELETE");
+  next();
+});
+
 app.use(json());
-app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
+app.use(cors());
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-router.post("/contact", async (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
+app.post("/contact", async (req, res) => {
+  const name = req.body.firstName + " " + req.body.lastName;
   const email = req.body.email;
   const message = req.body.message;
   const phone = req.body.phone;
@@ -34,3 +47,14 @@ router.post("/contact", async (req, res) => {
     res.json(e);
   }
 });
+app.get("*", async (_req, res) => {
+  try {
+    const html = await readFile("./dist/index.html", "utf-8");
+    res.send(html);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.listen(3000, () => console.log("Server Running"));
