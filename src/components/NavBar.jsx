@@ -52,15 +52,6 @@ export const NavBar = () => {
                 Inicio
               </Nav.Link>
               <Nav.Link
-                href="#skills"
-                className={
-                  activeLink === "skills" ? "active navbar-link" : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("skills")}
-              >
-                Skills
-              </Nav.Link>
-              <Nav.Link
                 href="#projects"
                 className={
                   activeLink === "projects"
@@ -71,28 +62,31 @@ export const NavBar = () => {
               >
                 Proyectos
               </Nav.Link>
+              <Nav.Link
+                href="#skills"
+                className={
+                  activeLink === "skills" ? "active navbar-link" : "navbar-link"
+                }
+                onClick={() => onUpdateActiveLink("skills")}
+              >
+                Skills
+              </Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
-                <a
-                  href="https://www.linkedin.com/in/cesar-beloqui/"
-                  target="_blank"
-                >
+                <a href="https://www.linkedin.com/in/cesar-beloqui/">
                   <img src={navIcon1} alt="" />
                 </a>
-                <a
-                  href="https://www.facebook.com/Cesar.Beloqui"
-                  target="_blank"
-                >
+                <a href="https://www.facebook.com/Cesar.Beloqui">
                   <img src={navIcon2} alt="" />
                 </a>
-                <a
-                  href="https://www.instagram.com/cesarbeloqui/"
-                  target="_blank"
-                >
+                <a href="https://www.instagram.com/cesarbeloqui/">
                   <img src={navIcon3} alt="" />
                 </a>
               </div>
+              <a href="https://api.whatsapp.com/send?phone=+543794142669&text=%C2%A1Hola+Cesar%21+Como+estas%3F+Estoy+interesado%2Fa+en+tu+perfil.">
+                <div className="number-cel">+549 379 4142669</div>
+              </a>
               <HashLink to="#connect">
                 <button className="vvd">
                   <span>Contactame</span>

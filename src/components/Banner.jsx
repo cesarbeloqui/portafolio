@@ -3,7 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/logo2.png";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
-import TrackVisibility from "react-on-screen";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -56,57 +55,29 @@ export const Banner = () => {
       <Container>
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={7}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? "animate__animated animate__fadeIn" : ""
-                  }
-                >
-                  <span className="tagline">Bienvenido a mi Portafolio</span>
-                  <h1>
-                    {`Hola! Soy Cesar Beloqui`}{" "}
-                    <span
-                      className="txt-rotate"
-                      dataPeriod="1000"
-                      data-rotate='["Desarrollador Web Full Stack"]'
-                    >
-                      <span className="wrap">{text}</span>
-                    </span>
-                  </h1>
-                  <p>
-                    con experiencia en JavaScript, Node.js, React.js, Redux.js,
-                    Express.js y PostgreSQL. Tengo experiencia en el trabajo en
-                    equipo y en Backend y Frontend. Git Flow, Firebase
-                    Authenticator, Sendgrid, Estructura de datos, Algoritmos y
-                    Microservicios. Capacidad probada para crear soluciones en
-                    Front End y Back End utilizando estas tecnologías.
-                    Responsable, detallista y orientado a cumplir plazos.
-                    Persigo metas con perseverancia y siempre en búsqueda de
-                    aprendizaje. Nivel A1 de Inglés Británico, actualmente
-                    cursando Inglés Nivel A2.
-                  </p>
-                  <a href="#connect">
-                    <button>
-                      Contactame <ArrowRightCircle size={25} />
-                    </button>
-                  </a>
-                </div>
-              )}
-            </TrackVisibility>
+            <div>
+              <span className="tagline">Bienvenido a mi Portafolio</span>
+              <h1>Hola! Soy Cesar Beloqui Desarrollador Web Full Stack</h1>
+              <p>
+                con experiencia en JavaScript, TypeScript, Node.js, React.js,
+                Redux.js, Express.js y PostgreSQL. Tengo experiencia en el
+                trabajo en equipo y en Backend y Frontend. Git Flow, Firebase
+                Authenticator, Sendgrid, Estructura de datos, Algoritmos y
+                Microservicios. Capacidad probada para crear soluciones en Front
+                End y Back End utilizando estas tecnologías. Responsable,
+                detallista y orientado a cumplir plazos. Persigo metas con
+                perseverancia y siempre en búsqueda de aprendizaje. Nivel A2 de
+                Inglés Británico.
+              </p>
+              <a href="#connect">
+                <button>
+                  Contactame <ArrowRightCircle size={25} />
+                </button>
+              </a>
+            </div>
           </Col>
           <Col xs={12} md={6} xl={5}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? "animate__animated animate__zoomIn" : ""
-                  }
-                >
-                  <img src={headerImg} alt="Header Img" />
-                </div>
-              )}
-            </TrackVisibility>
+            <img src={headerImg} alt="" />
           </Col>
         </Row>
       </Container>
