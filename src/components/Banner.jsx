@@ -59,8 +59,8 @@ export const Banner = () => {
               <span className="tagline">Bienvenido a mi Portafolio</span>
               <h1>Hola! Soy Cesar Beloqui Desarrollador Web Full Stack</h1>
               <p>
-                con experiencia en JavaScript, TypeScript, Node.js, React.js,
-                Redux.js, Express.js y PostgreSQL. Tengo experiencia en el
+                con experiencia en Python, JavaScript, TypeScript, Node.js, React.js,
+                Redux.js, Express.js, PostgreSQL. Tengo experiencia en el
                 trabajo en equipo y en Backend y Frontend. Git Flow, Firebase
                 Authenticator, Sendgrid, Estructura de datos, Algoritmos y
                 Microservicios. Capacidad probada para crear soluciones en Front

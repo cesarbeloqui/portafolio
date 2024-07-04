@@ -3,6 +3,7 @@ import javascript from "../assets/img/javascript.png";
 import node from "../assets/img/node.png";
 import express from "../assets/img/express.png";
 import react from "../assets/img/react.png";
+import python from "../assets/img/python.png";
 import redux from "../assets/img/redux.png";
 import postgres from "../assets/img/postgres.png";
 import firebase from "../assets/img/firebase.png";
@@ -53,6 +54,10 @@ export const Skills = () => {
                 infinite={true}
                 className="owl-carousel owl-theme skill-slider"
               >
+                <div className="item">
+                  <img src={python} alt="Image" />
+                  <h5>Python</h5>
+                </div>
                 <div className="item">
                   <img src={react} alt="Image" />
                   <h5>React</h5>
